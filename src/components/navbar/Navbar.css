@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Roboto+Slab&display=swap');
+
+.navbar{
+    font-family: 'Akaya Telivigala', cursive;
+    font-family: 'Roboto Slab', serif;
+    display: flex;
+    width: 100%;
+    background-color: #2e2e2e;
+    padding: 25px 100px;
+    justify-content: space-between;
+    align-items: center;
+}
+    .navbar > .navbarTitle{
+        cursor: pointer;
+    }
+
+        .navbar > .navbarTitle > h1{
+            color: aliceblue;
+        }
+        .navbar > .navbarIcon > .navbarIcon__movie {
+            font-size: 40px;
+            color: #f10707;
+            cursor: pointer;
+        }
+
+@media screen and (max-width: 820px){
+.navbar{
+    padding: 25px;
+}
+    .navbar > .navbarTitle > h1{
+        font-size: 20px;
+    }
+
+    .navbar > .navbarIcon > .navbarIcon__movie {
+        font-size: 20px;
+    }
+}
