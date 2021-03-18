@@ -1,6 +1,6 @@
 import {SEARCH_MOVIE} from '../actions/types'
 
-initialState = {
+const initialState = {
     text: '',
     movies: [],
     loading: false,

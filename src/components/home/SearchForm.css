@@ -1,0 +1,14 @@
+.searchForm__container{
+    width: 80%;
+    margin: 50px auto;
+}
+
+.searchForm__container > h1{
+    text-align: center;
+}
+
+.searchForm__container > form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
