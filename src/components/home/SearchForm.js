@@ -3,19 +3,25 @@ import {FaSearch} from 'react-icons/fa'
 import {connect} from 'react-redux'
 
 import './SearchForm.css'
-import {searchMovie} from '../../redux/actions/searchActions'
+import {searchMovie, fetchMovies} from '../../redux/actions/searchActions'
 
 export class SearchForm extends Component {
     onChange = e => {
         this.props.searchMovie(e.target.value)
     }
+
+    onSubmit = e => {
+        e.preventDefault()
+        this.props.fetchMovies(this.props.text)
+    }
+
     render() {
         return (
             <div className="searchForm__container">
                 <h1>
-                    <FaSearch /> Search for a Movie, TV Series ...
+                    <FaSearch className="icon" /> Search for a Movie, TV Series ...
                 </h1>
-                <form className="searchForm">
+                <form className="searchForm" onSubmit={this.onSubmit}>
                     <input 
                         type="text"
                         className="searchInput"
@@ -39,4 +45,7 @@ const mapStateToProps = state => ({
 })
 
 
-export default connect(mapStateToProps, {searchMovie})(SearchForm)
+export default connect(
+    mapStateToProps, 
+    {searchMovie, fetchMovies}
+    )(SearchForm)
