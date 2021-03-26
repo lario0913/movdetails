@@ -54,3 +54,17 @@
         color: #f10707;
         font-weight: 500;
     }
+
+    @media screen and (max-width: 700px){
+        .searchForm__container{
+            margin: 30px auto;
+        }
+        .searchForm__container > h1{
+            font-weight: 100;
+            font-size: 15px;
+        }
+        .searchForm__container > h1 > .icon {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+    }

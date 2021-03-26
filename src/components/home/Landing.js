@@ -4,28 +4,20 @@ import {connect} from 'react-redux'
 import SearchForm from './SearchForm'
 import Typicall from '../Typical/Typical';
 import Spinner from '../spinner/Spinner';
+import MoviesContainer from '../movies/MoviesContainer';
 
 export class Landing extends Component {
     render() {
         const {loading,movies} = this.props
-        // let display = <Typicall />
-        // console.log(loading)
-        // console.log(movies)
-        // let display = <Typicall />
-
-        // if(!loading && movies === []){
-        //     return (display = <Typicall />)
-        // }
-
+        
         return (
             <div className="landing">
                 <SearchForm />
-                {/* {display}               */}
                 {
                     loading ? <Spinner />                     
                             : movies.length === 0
                             ? <Typicall />
-                            : <div>Movie</div>
+                            : <MoviesContainer />
                 }
             </div>
         )
