@@ -12,6 +12,7 @@
 }
     .navbar > .navbarTitle{
         cursor: pointer;
+        text-decoration: none;
     }
 
         .navbar > .navbarTitle > h1{

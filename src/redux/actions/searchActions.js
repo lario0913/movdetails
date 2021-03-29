@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {SEARCH_MOVIE, FETCH_MOVIES, FETCH_MOVIE} from './types'
+import {SEARCH_MOVIE, FETCH_MOVIES, FETCH_MOVIE, LOADING} from './types'
 
 
 export const searchMovie = text => dispatch => {
@@ -25,4 +25,10 @@ export const fetchMovie = id => dispatch => {
             payload: res.data
         }))
         .catch(err => console.log(err))
+}
+
+export const setLoading = () => dispatch =>  {
+    dispatch({
+        type: LOADING
+    })
 }
