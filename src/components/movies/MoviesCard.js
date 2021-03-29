@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 
 export class MoviesCard extends Component {
     render() {
@@ -11,9 +12,9 @@ export class MoviesCard extends Component {
                         <h5>{movie.Title}</h5>
                         <h5>{movie.Year}</h5>
                     </div>
-                    <a className="cardLink" href={movie.Poster}>
+                    <Link className="cardLink" to={'/movie/' + movie.imdbID}>
                         Movie Details
-                    </a>
+                    </Link>
                 </div>
                 </div>
         )
