@@ -7,7 +7,7 @@ import Footer from './components/footer/Footer';
 import Landing from './components/home/Landing';
 import Navbar from './components/navbar/Navbar';
 import store from './redux/store';
-import { Movie } from './components/home/Movie';
+import Movie  from './components/home/Movie';
 
 
 function App() {

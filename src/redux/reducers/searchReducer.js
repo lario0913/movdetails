@@ -15,12 +15,14 @@ const searchReducer = (state=initialState, action) => {
                 text: action.payload,
                 loading: false
             }
+
         case FETCH_MOVIES:
             return {
                 ...state,
                 movies: action.payload,
                 loading: false
             }
+        
         case FETCH_MOVIE:
             return {
                 ...state,
@@ -33,6 +35,7 @@ const searchReducer = (state=initialState, action) => {
                 ...state,
                 loading: true,
             }
+            
         default:
             return state
     }

@@ -1,43 +1,49 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import {fetchMovie} from '../../redux/actions/searchActions'
+import {Link} from 'react-router-dom'
+import Spinner from '../spinner/Spinner'
+
+import {fetchMovie, setLoading} from '../../redux/actions/searchActions'
 
 
-export class Movie extends Component {
-    // componentDidMount(){
-    //     this.props.fetchMovie(this.props.match.params.id)
-    // }
+class Movie extends Component {
+    componentDidMount(){
+        this.props.fetchMovie(this.props.match.params.id)
+        this.props.setLoading()
+    }
 
     render() {
-        return (
+        const {loading, movie} = this.props
+
+        const movieInfo = (
             <div>
                 <div>
                     <div>
-                        <img src="#poster" className="movieImage" alt="Poster" />
+                        <img src={movie.Poster} className="movieImage" alt="Poster" />
                     </div>
                     <div>
-                        <h2 className="movieTitle">Movie Title</h2>
+                        <h2 className="movieMainTitle">{movie.Title}</h2>
                         <ul>
                             <li>
-                                <strong>Genre: </strong> Movie Genre
+                                <strong>Genre: </strong> {movie.Genre}
                             </li>
                             <li>
-                                <strong>Released: </strong> Movie Released
+                                <strong>Released: </strong> {movie.Released}
                             </li>
                             <li>
-                                <strong>Rated: </strong> Movie Rated
+                                <strong>Rated: </strong> {movie.Rated}
                             </li>
                             <li>
-                                <strong>IMDB Rating: </strong> Movie IMDB Rating
+                                <strong>IMDB Rating: </strong> {movie.imdbRating}
                             </li>
                             <li>
-                                <strong>Director: </strong> Movie Director
+                                <strong>Director: </strong> {movie.Director}
                             </li>
                             <li>
-                                <strong>Writer: </strong> Movie Writer
+                                <strong>Writer: </strong> {movie.Writer}
                             </li>
                             <li>
-                                <strong>Actors: </strong> Movie Actors
+                                <strong>Actors: </strong> {movie.Actors}
                             </li>
                         </ul>
                     </div>
@@ -45,19 +51,27 @@ export class Movie extends Component {
             
                 <div>
                     <h3>About</h3>
-                    <p>About the movie</p>
+                    <p>{movie.Plot}</p>
                     <a
-                        href="#"
+                        href={'https://www.imdb.com/title/' + movie.imdbID}
                         target="_blank"
-                        rel="noopener"
+                        rel="noopener noreferrer"
                     >
                         View on IMDB
                     </a>
-                    <a>
+                    <Link to="/">
                         Go Back To Search
-                    </a>
+                    </Link>
                 </div>
             </div>
+        )
+
+        const content = loading ? <Spinner /> : movieInfo
+
+        return (
+            <>
+            {content}
+            </>
         )
     }
 }
@@ -67,4 +81,8 @@ const mapStateToProps = state => ({
     movie: state.movies.movie
 })
 
-export default connect(mapStateToProps, {fetchMovie})(Movie)
+export default connect(
+    mapStateToProps, 
+    {fetchMovie, setLoading}
+    )
+    (Movie)
