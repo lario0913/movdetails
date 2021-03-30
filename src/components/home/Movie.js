@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import Spinner from '../spinner/Spinner'
 
+import './Movie.css'
+import Spinner from '../spinner/Spinner'
 import {fetchMovie, setLoading} from '../../redux/actions/searchActions'
+
 
 
 class Movie extends Component {
@@ -16,12 +18,12 @@ class Movie extends Component {
         const {loading, movie} = this.props
 
         const movieInfo = (
-            <div>
-                <div>
-                    <div>
+            <div className="movieInfoContainer">
+                <div className="movieInfoCard">
+                    <div className="movieInfoCardOne">
                         <img src={movie.Poster} className="movieImage" alt="Poster" />
                     </div>
-                    <div>
+                    <div className="movieInfoCardTwo">
                         <h2 className="movieMainTitle">{movie.Title}</h2>
                         <ul>
                             <li>
@@ -49,19 +51,21 @@ class Movie extends Component {
                     </div>
                 </div>
             
-                <div>
+                <div className="movieAbout">
                     <h3>About</h3>
                     <p>{movie.Plot}</p>
-                    <a
-                        href={'https://www.imdb.com/title/' + movie.imdbID}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        View on IMDB
-                    </a>
-                    <Link to="/">
-                        Go Back To Search
-                    </Link>
+                    <div className="movieLinks">
+                        <a
+                            href={'https://www.imdb.com/title/' + movie.imdbID}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            View on IMDB
+                        </a>
+                        <Link to="/">
+                            Go Back To Search
+                        </Link>
+                    </div>
                 </div>
             </div>
         )
