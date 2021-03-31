@@ -9,3 +9,17 @@
     margin-bottom: 50px;
     padding: 40px 0;
 }
+
+.typical > .errorLink{
+    margin-top: 30px;
+    padding: 9px 18px;
+    border-radius: 8px;
+    outline: none;
+    text-decoration: none;
+    border: none;
+    color: aliceblue;
+    background-color: #f10707;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;
+}
