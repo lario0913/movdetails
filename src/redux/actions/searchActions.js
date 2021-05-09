@@ -2,12 +2,15 @@ import axios from 'axios'
 import {SEARCH_MOVIE, FETCH_MOVIES, FETCH_MOVIE, LOADING} from './types'
 
 
+
 export const searchMovie = text => dispatch => {
     dispatch({
         type: SEARCH_MOVIE,
         payload: text
     })
 }
+
+
 
 export const fetchMovies = text => dispatch => {
     axios.get(`http://www.omdbapi.com/?apikey=a82438f4&s=${text}`)
@@ -17,6 +20,8 @@ export const fetchMovies = text => dispatch => {
         }))
         .catch(err => console.log(err))
 }
+
+
 
 export const fetchMovie = id => dispatch => {
     axios.get(`http://www.omdbapi.com/?apikey=a82438f4&i=${id}`)
